@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.rzo</groupId>
 	<artifactId>yajsw</artifactId>
-	<version>11.0-ACULAB</version>
+	<version>11.0</version>
 	<packaging>pom</packaging>	
 	<dependencies>
 
