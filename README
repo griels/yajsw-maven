@@ -1,0 +1,5 @@
+Maven port of yajsw.
+
+Official page: http://sf.net/projects/yajsw
+
+You will need to install Abeille Forms and ahessian to a local repository (using mvn install:install-from-file)
