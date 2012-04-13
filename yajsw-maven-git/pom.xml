@@ -4,7 +4,7 @@
 	<groupId>org.rzo</groupId>
 	<artifactId>yajsw</artifactId>
 	<version>11.0</version>
-	<packaging>pom</packaging>	
+	<packaging>pom</packaging>
 	<dependencies>
 
 
@@ -35,9 +35,9 @@
 			<version>2.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-		    <groupId>org.apache.commons</groupId>
-		    <artifactId>commons-vfs2</artifactId>
-		    <version>2.0</version>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-vfs2</artifactId>
+			<version>2.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.codehaus.groovy</groupId>
@@ -68,9 +68,9 @@
 		</dependency>
 		<dependency>
 			<groupId>org.rzo</groupId>
-			<artifactId>ahessian</artifactId> 
+			<artifactId>ahessian</artifactId>
 			<version>yajsw.11.0</version>
-		</dependency> 
+		</dependency>
 
 		<dependency>
 			<groupId>org.quartz-scheduler</groupId>
@@ -118,28 +118,28 @@
 				</configuration>
 			</plugin>
 			<plugin>
-        <artifactId>maven-resources-plugin</artifactId>
-	        <version>2.5</version>
-	        <executions>
-	          <execution>
-	            <id>copy-resources</id>
-	            <!-- here the phase you need -->
-	            <phase>validate</phase>
-	            <goals>
-	              <goal>copy-resources</goal>
-	            </goals>
-	            <configuration>
-	              <outputDirectory>${basedir}/target/templates</outputDirectory>
-	              <resources>          
-	                <resource>
-	                  <directory>${basedir}/templates</directory>
-	                  <filtering>true</filtering>
-	                </resource>
-	              </resources>              
-	            </configuration>            
-	          </execution>
-	        </executions>
-	      </plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.5</version>
+				<executions>
+					<execution>
+						<id>copy-resources</id>
+						<!-- here the phase you need -->
+						<phase>validate</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/templates</outputDirectory>
+							<resources>
+								<resource>
+									<directory>${basedir}/templates</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
@@ -160,23 +160,23 @@
 						</configuration>
 					</execution>
 					<execution>
-			            <id>add-resource</id>
-			            <phase>generate-resources</phase>
-			            <goals>
-			              <goal>add-resource</goal>
-			            </goals>
-			            <configuration>
-			              <resources>
-			                <resource>
-			                  <directory>templates</directory>
-			                  <targetPath>templates</targetPath>
-			                  <includes>
-			                    <include>**/*</include>
-			                  </includes>
-			                </resource>
-			              </resources>
-			            </configuration>
-			          </execution>
+						<id>add-resource</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>add-resource</goal>
+						</goals>
+						<configuration>
+							<resources>
+								<resource>
+									<directory>templates</directory>
+									<targetPath>templates</targetPath>
+									<includes>
+										<include>**/*</include>
+									</includes>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
 				</executions>
 			</plugin>
 			<plugin>
@@ -196,15 +196,15 @@
 				<configuration>
 					<descriptor>src/assemble/bin.xml</descriptor>
 					<archive>
-				      <manifest>
-				        <mainClass>org.rzo.yajsw.boot.WrapperExeBooter</mainClass>
-				        <addClasspath>true</addClasspath>
-				      </manifest>
-				    </archive>
+						<manifest>
+							<mainClass>org.rzo.yajsw.boot.WrapperExeBooter</mainClass>
+							<addClasspath>true</addClasspath>
+						</manifest>
+					</archive>
 				</configuration>
 
 			</plugin>
-			
+
 		</plugins>
 
 		<pluginManagement>
@@ -244,15 +244,16 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
-		
-	<resources>
-      <resource>
-        <directory>templates</directory>
-        <includes><include>**/*</include>
-        </includes>
-      </resource>
-  
-    </resources>
+
+		<resources>
+			<resource>
+				<directory>templates</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+
+		</resources>
 	</build>
 	<repositories>
 
