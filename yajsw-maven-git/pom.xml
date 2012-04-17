@@ -4,7 +4,7 @@
 	<groupId>org.rzo</groupId>
 	<artifactId>yajsw</artifactId>
 	<version>11.0</version>
-	<packaging>pom</packaging>
+	
 	<dependencies>
 
 
