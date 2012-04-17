@@ -4,7 +4,7 @@
 	<groupId>org.rzo</groupId>
 	<artifactId>yajsw</artifactId>
 	<version>11.0</version>
-	<packaging>pom</packaging>
+	
 	<dependencies>
 
 
@@ -256,7 +256,7 @@
 		</resources>
 	</build>
 	<repositories>
-		<!--
+
 		<repository>
 			<id>Releases</id>
 
@@ -266,7 +266,7 @@
 			<id>Apache Snapshots Proxy</id>
 
 			<url>http://192.168.6.242:8082/nexus/content/repositories/apache-snapshots/</url>
-		</repository>-->
+		</repository>
 		<repository>
 			<id>Apache Snapshots</id>
 			<url>https://repository.apache.org/content/groups/snapshots/</url>
