@@ -203,36 +203,22 @@
 					</execution>
 				</executions>
 			</plugin>
-		<plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-jar-plugin</artifactId>
-            <version>2.3</version>
-        <configuration>
-        <useDefaultManifestFile>false</useDefaultManifestFile>
-<!--           <archive>
-                <manifestEntries>
-                 <Class-Path-Wrapper-Core> ${maven.compile.classpath} </Class-Path-Wrapper-Core>
-                     <mode>development</mode>
-                     <url>${pom.url}</url>
-                     <key>value</key>
-                  </manifestEntries>
-                     
-                    <manifest>
-                     <addClasspath>true</addClasspath>
-                     
-                  </manifest>
-              <manifestSection>
-                <name>Class-Path-Wrapper-Extended</name>
-                <Class-Path></Class-Path>
-              </manifestSection>
-              <manifestSection>
-                <name>Class-Path-Wrapper-App</name>
-                <ClassPath></ClassPath>
-              </manifestSection>
-           </manifestSections>
-          </archive> -->
-        </configuration>
-      </plugin>	 
+		<!-- 	<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3</version>
+				<configuration>
+					<useDefaultManifestFile>false</useDefaultManifestFile>
+					<archive>
+						<manifestEntries>
+							<Class-Path-Wrapper-Core> ${maven.compile.classpath} </Class-Path-Wrapper-Core>
+
+						</manifestEntries>
+			
+			
+					</archive>
+				</configuration>
+			</plugin>	  -->
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>2.1</version>
@@ -328,13 +314,13 @@
 				</includes>
 			</resource>
 			<resource>
-			        <directory>src/main/resources</directory>
-			<includes>
+				<directory>src/main/resources</directory>
+				<includes>
 					<include>**/*</include>
 				</includes>
-			        
-			        <filtering>true</filtering>
-		      </resource>
+		
+				<filtering>true</filtering>
+			</resource>
 		</resources>
 
 	</build>
