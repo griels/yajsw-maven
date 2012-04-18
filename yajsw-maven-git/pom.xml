@@ -4,7 +4,11 @@
 	<groupId>org.rzo</groupId>
 	<artifactId>yajsw</artifactId>
 	<version>11.0</version>
-	
+<properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <space>\u00020</space>
+</properties>	
 	<dependencies>
 
 
@@ -180,6 +184,56 @@
 				</executions>
 			</plugin>
 			<plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.4</version>
+        <executions>
+          <execution>
+            <id>build-classpath</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>build-classpath</goal> 
+            </goals>
+            <configuration>
+            <attach>true</attach>
+<!--             <fileSeparator>&#0020</fileSeparator>-->
+             <pathSeparator>${space}</pathSeparator>
+            <outputFile>${basedir}/target/assembly/classPath</outputFile>
+              <!-- configure the plugin here -->
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+		<plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <version>2.3</version>
+        <configuration>
+          <archive>
+                <manifestEntries>
+                 <Class-Path-Wrapper-Core> ${maven.compile.classpath} </Class-Path-Wrapper-Core>
+                     <mode>development</mode>
+                     <url>${pom.url}</url>
+                     <key>value</key>
+                  </manifestEntries>
+                     
+                    <manifest>
+                     <addClasspath>true</addClasspath>
+                     
+                  </manifest>
+              <!-- <manifestSection>
+                <name>Class-Path-Wrapper-Extended</name>
+                <Class-Path></Class-Path>
+              </manifestSection>
+              <manifestSection>
+                <name>Class-Path-Wrapper-App</name>
+                <ClassPath></ClassPath>
+              </manifestSection> -->
+<!--            </manifestSections>-->
+          </archive>
+        </configuration>
+      </plugin>	 
+			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>2.1</version>
 				<executions>
@@ -195,7 +249,7 @@
 				</executions>
 				<configuration>
 					<descriptor>src/assemble/bin.xml</descriptor>
-					<archive>
+					 <archive>
 						<manifest>
 							<mainClass>org.rzo.yajsw.boot.WrapperExeBooter</mainClass>
 							<addClasspath>true</addClasspath>
@@ -204,8 +258,10 @@
 				</configuration>
 
 			</plugin>
-
-		</plugins>
+			
+		
+		
+		    </plugins>
 
 		<pluginManagement>
 			<plugins>
@@ -232,6 +288,25 @@
 										<goals>
 											<goal>add-source</goal>
 											<goal>add-resource</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.maven.plugins
+										</groupId>
+										<artifactId>
+											maven-dependency-plugin
+										</artifactId>
+										<versionRange>
+											[2.4,)
+										</versionRange>
+										<goals>
+											<goal>build-classpath</goal>
 										</goals>
 									</pluginExecutionFilter>
 									<action>
