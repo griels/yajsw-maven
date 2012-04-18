@@ -8,7 +8,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<MANIFEST>${basedir}/src/main/resources/META-INF/MANIFEST.MF</MANIFEST>
-                
+
 		<space>&#0020;</space>
 	</properties>
 	<dependencies>
@@ -111,10 +111,10 @@
 			<version>1.0</version>
 		</dependency>
 		<dependency>
-		    <groupId>org.codehaus.mojo</groupId>
-		    <artifactId>properties-maven-plugin</artifactId>
-		    <version>1.0-alpha-1</version>
-		</dependency> 
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>properties-maven-plugin</artifactId>
+			<version>1.0-alpha-1</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -203,79 +203,66 @@
 						<configuration>
 							<attach>true</attach>
 							<localRepoProperty>.</localRepoProperty>
-							<pathSeparator>$${pathDelim}</pathSeparator>-->
+							<pathSeparator>$${pathDelim}</pathSeparator>
+							-->
 							<outputFile>${basedir}/target/assembly/classPath</outputFile>
 
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
-			
-	<plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-antrun-plugin</artifactId>
-        <version>1.7</version>
-        <executions>
-          <execution>
-            <id>compile</id>
-            <phase>compile</phase>
-            <configuration>
-              <target>
-				<property name="cp.props" value="${basedir}/target/assembly/classPath.properties"/>
-				
-                <concat destfile="${cp.props}">
-                	<string>wrapper.core.classpath=</string>
-                	<filelist dir="${basedir}/target/assembly" files="classPath"/>                	
-                </concat>
-				<property file="${cp.props}" />
-                <echo file="${MANIFEST}" message=
-					"Manifest-Version: 1.0${line.separator}
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>compile</id>
+						<phase>compile</phase>
+						<configuration>
+							<target>
+								<property name="cp.props"
+									value="${basedir}/target/assembly/classPath.properties" />
+
+								<concat destfile="${cp.props}">
+									<string>wrapper.core.classpath=</string>
+									<filelist dir="${basedir}/target/assembly" files="classPath" />
+								</concat>
+								<property file="${cp.props}" />
+								<echo file="${MANIFEST}"
+									message="Manifest-Version: 1.0${line.separator}
 					Class-Path-Wrapper-Core: ${wrapper.core.classpath}${line.separator}
 					${line.separator}
 					Class-Path-Wrapper-Extended: ${wrapper.core.classpath}${line.separator}
 					${line.separator}
 					Class-Path-App: ${wrapper.core.classpath}${line.separator}
 					${line.separator}
-					Main-Class: org.rzo.yajsw.boot.WrapperExeBooter${line.separator}"/>
-			<replace file="${MANIFEST}" token="${pathDelim}" value=" "/>
-              </target>
-            </configuration>
-            <goals>
-              <goal>run</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-			
-			<!-- <plugin>
-	        <groupId>org.codehaus.mojo</groupId>
-	        <artifactId>properties-maven-plugin</artifactId>
-	        <version>1.0-alpha-1</version>
-	        <executions>
-	          <execution>
-	            <phase>initialize</phase>
-	            <goals>
-	              <goal>read-project-properties</goal>
-	            </goals>
-	            <configuration>
-	              <files>
-	                <file>${basedir}/target/assembly/classPath</file>
-	              </files>
-	            </configuration>
-	          </execution>
-	        </executions>
-	      </plugin> -->
+					Main-Class: org.rzo.yajsw.boot.WrapperExeBooter${line.separator}" />
+								<replace file="${MANIFEST}" token="${pathDelim}" value=" " />
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>properties-maven-plugin</artifactId> 
+				<version>1.0-alpha-1</version> <executions> <execution> <phase>initialize</phase> 
+				<goals> <goal>read-project-properties</goal> </goals> <configuration> <files> 
+				<file>${basedir}/target/assembly/classPath</file> </files> </configuration> 
+				</execution> </executions> </plugin> -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>2.3</version>
 				<configuration>
 					<useDefaultManifestFile>false</useDefaultManifestFile>
-				<!-- 	<archive>
-						<manifestFile>${MANIFEST}</manifestFile>				
-					</archive>		 -->			
+					<!-- <archive> <manifestFile>${MANIFEST}</manifestFile> </archive> -->
 				</configuration>
-			</plugin> 
+			</plugin>
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>2.1</version>
@@ -294,13 +281,13 @@
 					<descriptor>src/assemble/bin.xml</descriptor>
 					<archive>
 						<manifestFile>${MANIFEST}</manifestFile>
-						
+
 					</archive>
 				</configuration>
 
 			</plugin>
 
-	      
+
 
 
 
@@ -449,9 +436,9 @@
 		</repository>
 	</repositories>
 	<pluginRepositories>
-	    <pluginRepository>
-	      <id>beardedgeeks-releases</id>
-	      <url>http://beardedgeeks.googlecode.com/svn/repository/releases</url>
-	    </pluginRepository>
-	  </pluginRepositories>
+		<pluginRepository>
+			<id>beardedgeeks-releases</id>
+			<url>http://beardedgeeks.googlecode.com/svn/repository/releases</url>
+		</pluginRepository>
+	</pluginRepositories>
 </project>
