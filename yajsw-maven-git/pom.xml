@@ -8,7 +8,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<MANIFEST>${basedir}/src/main/resources/META-INF/MANIFEST.MF</MANIFEST>
-
 		<space>&#0020;</space>
 	</properties>
 	<dependencies>
@@ -204,7 +203,7 @@
 							<attach>true</attach>
 							<localRepoProperty>.</localRepoProperty>
 							<pathSeparator>$${pathDelim}</pathSeparator>
-							-->
+							
 							<outputFile>${basedir}/target/assembly/classPath</outputFile>
 
 						</configuration>
@@ -232,14 +231,17 @@
 								<property file="${cp.props}" />
 								<echo file="${MANIFEST}"
 									message="Manifest-Version: 1.0${line.separator}
-					Class-Path-Wrapper-Core: ${wrapper.core.classpath}${line.separator}
+					Class-Path-Wrapper-Core:${line.separator}
+					${wrapper.core.classpath}${line.separator}
 					${line.separator}
-					Class-Path-Wrapper-Extended: ${wrapper.core.classpath}${line.separator}
+					Class-Path-Wrapper-Extended:${line.separator}
+					${wrapper.core.classpath}${line.separator}
 					${line.separator}
-					Class-Path-App: ${wrapper.core.classpath}${line.separator}
+					Class-Path-App:${line.separator}
+					${wrapper.core.classpath}${line.separator}
 					${line.separator}
 					Main-Class: org.rzo.yajsw.boot.WrapperExeBooter${line.separator}" />
-								<replace file="${MANIFEST}" token="${pathDelim}" value=" " />
+								<replace file="${MANIFEST}" token="${pathDelim}" value="${line.separator}" />
 							</target>
 						</configuration>
 						<goals>
