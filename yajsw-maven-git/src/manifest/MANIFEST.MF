@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Class-Path-Wrapper-Core: 
+${maven.compile.classpath} 
+  
+Class-Path-Wrapper-Extended: 
+${maven.compile.classpath} 
+
+Class-Path-App: 
+${maven.compile.classpath} 
+ 
+Main-Class: org.rzo.yajsw.boot.WrapperExeBooter
+
