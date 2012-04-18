@@ -7,7 +7,7 @@
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <space>\u00020</space>
+    <space></space>
 </properties>	
 	<dependencies>
 
@@ -184,32 +184,32 @@
 				</executions>
 			</plugin>
 			<plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>2.4</version>
-        <executions>
-          <execution>
-            <id>build-classpath</id>
-            <phase>generate-sources</phase>
-            <goals>
-              <goal>build-classpath</goal> 
-            </goals>
-            <configuration>
-            <attach>true</attach>
-<!--             <fileSeparator>&#0020</fileSeparator>-->
-             <pathSeparator>${space}</pathSeparator>
-            <outputFile>${basedir}/target/assembly/classPath</outputFile>
-              <!-- configure the plugin here -->
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.4</version>
+				<executions>
+					<execution>
+						<id>build-classpath</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>build-classpath</goal>
+						</goals>
+						<configuration>
+							<attach>true</attach>
+							<pathSeparator>$${line.separator}</pathSeparator>
+							<outputFile>${basedir}/target/assembly/classPath</outputFile>
+		
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		<plugin>
         <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-jar-plugin</artifactId>
             <version>2.3</version>
         <configuration>
-          <archive>
+        <useDefaultManifestFile>false</useDefaultManifestFile>
+<!--           <archive>
                 <manifestEntries>
                  <Class-Path-Wrapper-Core> ${maven.compile.classpath} </Class-Path-Wrapper-Core>
                      <mode>development</mode>
@@ -221,16 +221,16 @@
                      <addClasspath>true</addClasspath>
                      
                   </manifest>
-              <!-- <manifestSection>
+              <manifestSection>
                 <name>Class-Path-Wrapper-Extended</name>
                 <Class-Path></Class-Path>
               </manifestSection>
               <manifestSection>
                 <name>Class-Path-Wrapper-App</name>
                 <ClassPath></ClassPath>
-              </manifestSection> -->
-<!--            </manifestSections>-->
-          </archive>
+              </manifestSection>
+           </manifestSections>
+          </archive> -->
         </configuration>
       </plugin>	 
 			<plugin>
@@ -261,7 +261,7 @@
 			
 		
 		
-		    </plugins>
+		</plugins>
 
 		<pluginManagement>
 			<plugins>
@@ -327,8 +327,16 @@
 					<include>**/*</include>
 				</includes>
 			</resource>
-
+			<resource>
+			        <directory>src/main/resources</directory>
+			<includes>
+					<include>**/*</include>
+				</includes>
+			        
+			        <filtering>true</filtering>
+		      </resource>
 		</resources>
+
 	</build>
 	<repositories>
 		<!--
