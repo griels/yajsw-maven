@@ -9,6 +9,9 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<MANIFEST>${basedir}/src/main/resources/META-INF/MANIFEST.MF</MANIFEST>
 		<space>&#0020;</space>
+		<lf>&#0010;</lf>
+		<cr>&#0014;</cr>
+		<linesep>${line.separator}</linesep>
 	</properties>
 	<dependencies>
 
@@ -223,6 +226,7 @@
 							<target>
 								<property name="cp.props"
 									value="${basedir}/target/assembly/classPath.properties" />
+								<property name="ls" value="${linesep}"/>
 
 								<concat destfile="${cp.props}">
 									<string>wrapper.core.classpath=</string>
@@ -230,16 +234,11 @@
 								</concat>
 								<property file="${cp.props}" />
 								<echo file="${MANIFEST}"
-									message="Manifest-Version: 1.0${line.separator}Class-Path-Wrapper-Core: ${line.separator}
-					${wrapper.core.classpath}${line.separator}
-					${line.separator}
-					Class-Path-Wrapper-Extended: ${line.separator}
-					${wrapper.core.classpath}${line.separator}
-					${line.separator}
-					Class-Path-App: ${line.separator}
-					${wrapper.core.classpath}${line.separator}
-					${line.separator}
-					Main-Class: org.rzo.yajsw.boot.WrapperExeBooter${line.separator}" />
+									message="Manifest-Version: 1.0
+					${ls}Class-Path-Wrapper-Core: ${ls} ${wrapper.core.classpath}${ls}
+					${ls}Class-Path-Wrapper-Extended: ${ls} ${wrapper.core.classpath}${ls}
+					${ls}Class-Path-App: ${ls} ${wrapper.core.classpath}${ls}
+					${ls}Main-Class: org.rzo.yajsw.boot.WrapperExeBooter${ls}" />
 								<replace file="${MANIFEST}" token="${pathDelim}" value=" " />
 							</target>
 						</configuration>
