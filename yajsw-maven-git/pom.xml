@@ -204,7 +204,7 @@
 						</goals>
 						<configuration>
 							<attach>true</attach>
-							<localRepoProperty>.</localRepoProperty>
+							<!-- <localRepoProperty>.</localRepoProperty>-->
 							<pathSeparator>$${pathDelim}</pathSeparator>
 							
 							<outputFile>${basedir}/target/assembly/classPath</outputFile>
@@ -226,7 +226,7 @@
 							<target>
 								<property name="cp.props"
 									value="${basedir}/target/assembly/classPath.properties" />
-								<property name="ls" value="${linesep}"/>
+								<property name="ls" value="${line.separator}"/>
 
 								<concat destfile="${cp.props}">
 									<string>wrapper.core.classpath=</string>
