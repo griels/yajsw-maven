@@ -13,7 +13,7 @@ cd "$current"
 
 wrapper_home="$PRGDIR"/..
 export wrapper_home
-wrapper_name="yajsw-11.0
+wrapper_name="yajsw-11.0"
 wrapper_jar="$wrapper_home"/target/${wrapper_name}-distribution.jar
 export wrapper_jar
 
