@@ -204,7 +204,7 @@
 						</goals>
 						<configuration>
 							<attach>true</attach>
-							<!-- <localRepoProperty>.</localRepoProperty>-->
+							<localRepoProperty>../lib</localRepoProperty>
 							<pathSeparator>$${pathDelim}</pathSeparator>
 							
 							<outputFile>${basedir}/target/assembly/classPath</outputFile>
