@@ -13,11 +13,12 @@ cd "$current"
 
 wrapper_home="$PRGDIR"/..
 export wrapper_home
-
-wrapper_jar="$wrapper_home"/wrapper.jar
+wrapper_name="yajsw-11.0
+wrapper_jar="$wrapper_home"/target/${wrapper_name}-distribution.jar
 export wrapper_jar
 
-wrapper_app_jar="$wrapper_home"/wrapperApp.jar
+wrapper_app_jar=${wrapper_jar}
+#"$wrapper_home"/target/yajsw-11.0-distribution.jar
 export wrapper_app_jar
 
 wrapper_java_options=-Xmx15m
